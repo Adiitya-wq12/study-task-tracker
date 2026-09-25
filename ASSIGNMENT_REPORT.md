@@ -1,8 +1,8 @@
 # Assignment report: StudyTask
 
-**Student name:** Aditya Sudhir
-**GitHub repository:** https://github.com/Adiitya-wq12/study-task-tracker
-**Deployed application:** https://study-task-tracker-3jal.onrender.com/
+**Student name:** **Aditya Sudhir**
+**GitHub repository:** **https://github.com/Adiitya-wq12/study-task-tracker**
+**Deployed application:** **https://study-task-tracker-3jal.onrender.com/**
 
 ## Description and problem
 
