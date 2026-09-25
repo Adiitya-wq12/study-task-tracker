@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StudyTask | Study planner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <header><span class="eyebrow">STUDYTASK</span><h1>Make a plan. Get it done.</h1><p>Keep your study tasks in one simple place.</p></header>
+    <section class="card" aria-label="Add a task">
+      <h2>Add a study task</h2>
+      <form action="{{ url_for('add_task') }}" method="post" class="task-form">
+        <label>Task <input name="title" maxlength="120" required placeholder="Revise database joins"></label>
+        <label>Subject <input name="subject" maxlength="60" required placeholder="Database systems"></label>
+        <label>Due date <input name="due_date" type="date"></label>
+        <button type="submit">Add task</button>
+      </form>
+    </section>
+    <section class="tasks" aria-label="Your tasks">
+      <div class="section-heading"><h2>Your tasks</h2><span>{{ done }} of {{ total }} completed</span></div>
+      {% if tasks %}
+        <ul>
+        {% for task in tasks %}
+          <li class="card task {% if task.completed %}complete{% endif %}">
+            <div><strong>{{ task.title }}</strong><p>{{ task.subject }}{% if task.due_date %} · Due {{ task.due_date }}{% endif %}{% if not task.completed and task.due_date and task.due_date < today %} · Overdue{% endif %}</p></div>
+            <div class="actions">
+              <form action="{{ url_for('toggle_task', task_id=task.id) }}" method="post"><button class="secondary" type="submit">{{ 'Undo' if task.completed else 'Complete' }}</button></form>
+              <form action="{{ url_for('delete_task', task_id=task.id) }}" method="post"><button class="delete" type="submit" aria-label="Delete {{ task.title }}">Delete</button></form>
+            </div>
+          </li>
+        {% endfor %}
+        </ul>
+      {% else %}<p class="empty">No tasks yet. Add your first task above.</p>{% endif %}
+    </section>
+    <footer>StudyTask · A Flask cloud application</footer>
+  </main>
+</body>
+</html>
