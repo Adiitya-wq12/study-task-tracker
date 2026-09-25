@@ -1,8 +1,8 @@
 # Assignment report: StudyTask
 
-**Student name:** [Your name]  
-**GitHub repository:** [Add your repository URL after upload]  
-**Deployed application:** [Add your Render URL after deployment]
+**Student name:** Aditya Sudhir
+**GitHub repository:** https://github.com/Adiitya-wq12/study-task-tracker
+**Deployed application:** https://study-task-tracker-3jal.onrender.com/
 
 ## Description and problem
 
